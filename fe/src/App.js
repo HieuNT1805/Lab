@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get("http://localhost:9000/v2/posts")
+      const res = await axios.get("http://localhost:8001/v2/posts")
       setVideos(res.data)
       
       return res
