@@ -1,8 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors"); 
-
-const Card = require("./dbCard");
+const Videos = require("./dbModels");
 
 
 
@@ -20,12 +19,12 @@ mongoose.connect(connection_url)
 
 //API Endpoint
 app.get("/", (req,res) => {
-    res.status(200).send("Hello TheWebDev")
+    res.status(200).send("Hello TheWebDevv")
 })
 
-app.post('/dating/card', (req,res) => {
-    const dbCard = req.body;
-    Card.create(dbCard, (err, data) => {
+app.post('/v2/posts', (req,res) => {
+    const dbVideos = req.body;
+    Videos.create(dbVideos, (err, data) => {
         if(err) {
             res.status(500).send(err)
         }else{
@@ -34,8 +33,8 @@ app.post('/dating/card', (req,res) => {
     })
 } )
 
-app.get('/dating/card', (req,res) => {
-    Card.find((err, data) => {
+app.get('/v2/posts', (req,res) => {
+    Videos.find((err, data) => {
         if(err) {
             res.status(500).send(err)
         }else{
